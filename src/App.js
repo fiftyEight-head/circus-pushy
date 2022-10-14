@@ -1,4 +1,4 @@
-import logo from "./logo.svg";
+
 import "./App.css";
 import * as Tone from "tone";
 
@@ -10,16 +10,19 @@ function App() {
   );
 }
 
-let rowList = [];
+let buttonsMatrix = [];
 for (let i = 0; i < 8; i++) {
-    rowList.push(<Row name={i+1}></Row>)
+    buttonsMatrix.push(<Row name={i+1}></Row>)
+    for (let j = 0; j < 8; j++) {
+      buttonsMatrix.push(<Row name={j+1}></Row>)
+    }
 }
 
 function Board(props) {
   return (
     //TODO poner un for para crear 8 rows
     <div className="buttonBoard">
-      {rowList}
+      {buttonsMatrix}
     </div>
   );
 }
