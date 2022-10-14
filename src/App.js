@@ -1,4 +1,3 @@
-
 import "./App.css";
 import * as Tone from "tone";
 
@@ -12,10 +11,7 @@ function App() {
 
 let buttonsMatrix = [];
 for (let i = 0; i < 8; i++) {
-    buttonsMatrix.push(<Row name={i+1}></Row>)
-    for (let j = 0; j < 8; j++) {
-      buttonsMatrix.push(<Row name={j+1}></Row>)
-    }
+    buttonsMatrix.push(<Row rowId={i+1}></Row>)
 }
 
 function Board(props) {
@@ -28,15 +24,16 @@ function Board(props) {
 }
 
 
-let buttonList = [];
-
-for (let i = 0; i < 8; i++) {
-    buttonList.push(<Button name={i+1}></Button>)
-};
-
 
 
 function Row(props) {
+
+  let buttonList = [];
+
+  for (let i = 0; i < 8; i++) {
+      buttonList.push(<Button rowId={props.rowId} name={i+1}></Button>)
+    };
+  
   return (
     //TODO poner un for para crear 8 botons
     <div className="pushRow">{buttonList}</div>
@@ -57,7 +54,7 @@ function Button(props) {
     <>
       <p className="pushButton" onClick={handleClick}>
         {" "}
-        I am {props.name}
+        I am Button {props.name} in row {props.rowId}
       </p>
     </>
   );
