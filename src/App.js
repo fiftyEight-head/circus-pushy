@@ -4,7 +4,7 @@ import * as Tone from "tone";
 
 function App() {
   return (
-    <div className="App">
+    <div className="board">
       <Board name="Push1" />
     </div>
   );
@@ -18,7 +18,7 @@ for (let i = 0; i < 8; i++) {
 function Board(props) {
   return (
     //TODO poner un for para crear 8 rows
-    <div>
+    <div className="buttonBoard">
       {rowList}
     </div>
   );
@@ -51,12 +51,12 @@ function Button(props) {
   };
 
   return (
-    <div>
+    <>
       <p className="pushButton" onClick={handleClick}>
         {" "}
         I am {props.name}
       </p>
-    </div>
+    </>
   );
 }
 
