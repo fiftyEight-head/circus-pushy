@@ -32,7 +32,10 @@ function Row(props) {
   let buttonList = [];
 
   for (let i = 0; i < 8; i++) {
-      buttonList.push(<Button rowId={props.rowId} name={i+1} note={calculateNote(props.rowId, i+1)}></Button>)
+      buttonList.push(<Button rowId={props.rowId} 
+                      name={i+1} 
+                      note={calculateNote(props.rowId, i+1)}
+                      absButtonId={calculateAbsoluteButtonNumber(props.rowId, i+1)}></Button>)
     };
   
   return (
@@ -143,14 +146,14 @@ function Button(props) {
     const synth = new Tone.Synth().toDestination();
     synth.triggerAttackRelease(props.note, "8n");
 
-    console.log("The button was clicked.");
+    console.log("Note:" + props.note);
   };
 
   return (
     <>
       <p className="pushButton" onClick={handleClick}>
         {" "}
-        I am Button {props.name} in row {props.rowId}
+        Button: {props.absButtonId}
       </p>
     </>
   );
