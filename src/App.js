@@ -133,9 +133,9 @@ function calculateNote(rowId, buttonId){
   return finalNote;
 }
 
-function calculateColor(absoluteButtonNumber){
-  return 0;
-}
+// function calculateColor(absoluteButtonNumber){
+//   return 0;
+// }
 
 
 function Button(props) {
@@ -146,7 +146,7 @@ function Button(props) {
     const synth = new Tone.Synth().toDestination();
     synth.triggerAttackRelease(props.note, "8n");
 
-    console.log("Note:" + props.note);
+    console.log("Note:" + props.note);  
   };
 
   return (
